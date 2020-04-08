@@ -1,0 +1,1058 @@
+r.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()
+` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate sched
+ule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Training
+Traceback (most recent call last):
+  File "train.py", line 18, in <module>
+    trainer.train()
+  File "/home/ubuntu/monodepth2/trainer.py", line 189, in train
+    self.run_epoch()
+  File "/home/ubuntu/monodepth2/trainer.py", line 205, in run_epoch
+    outputs, losses = self.process_batch(inputs)
+  File "/home/ubuntu/monodepth2/trainer.py", line 252, in process_batch
+    print(np.max(disp.cpu().detach().numpy()) + "\r")
+TypeError: ufunc 'add' did not contain a loop with signature matching types dtype('<U32') dtype('<U32') dtype('<U32')
+ubuntu@ip-172-31-82-185:~/monodepth2$ python train.py --model_name stereo_model   --frame_ids 0 --use_stereo --log_dir models/
+orig_model/
+Training model named:
+   stereo_model
+Models and tensorboard events files are saved to:
+   models/orig_model/
+Training is using:
+   cuda
+Using split:
+   eigen_zhou
+There are 39810 training items and 4424 validation items
+
+/home/ubuntu/anaconda3/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:122: UserWarning: Detected call of `lr_schedule
+r.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()
+` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate sched
+ule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Training
+Traceback (most recent call last):
+  File "train.py", line 18, in <module>
+    trainer.train()
+  File "/home/ubuntu/monodepth2/trainer.py", line 189, in train
+    self.run_epoch()
+  File "/home/ubuntu/monodepth2/trainer.py", line 205, in run_epoch
+    outputs, losses = self.process_batch(inputs)
+  File "/home/ubuntu/monodepth2/trainer.py", line 252, in process_batch
+    print(np.max(disp.cpu().numpy()) + "\r")
+RuntimeError: Can't call numpy() on Variable that requires grad. Use var.detach().numpy() instead.
+ubuntu@ip-172-31-82-185:~/monodepth2$ python train.py --model_name stereo_model   --frame_ids 0 --use_stereo --log_dir models/
+orig_model/
+Traceback (most recent call last):
+  File "train.py", line 9, in <module>
+    from trainer import Trainer
+  File "/home/ubuntu/monodepth2/trainer.py", line 252
+    print(disp.max()) + "\r")
+                            ^
+SyntaxError: invalid syntax
+ubuntu@ip-172-31-82-185:~/monodepth2$ python train.py --model_name stereo_model   --frame_ids 0 --use_stereo --log_dir models/
+orig_model/
+Training model named:
+   stereo_model
+Models and tensorboard events files are saved to:
+   models/orig_model/
+Training is using:
+   cuda
+Using split:
+   eigen_zhou
+There are 39810 training items and 4424 validation items
+
+/home/ubuntu/anaconda3/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:122: UserWarning: Detected call of `lr_schedule
+r.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()
+` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate sched
+ule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Training
+Traceback (most recent call last):
+  File "train.py", line 18, in <module>
+    trainer.train()
+  File "/home/ubuntu/monodepth2/trainer.py", line 189, in train
+    self.run_epoch()
+  File "/home/ubuntu/monodepth2/trainer.py", line 205, in run_epoch
+    outputs, losses = self.process_batch(inputs)
+  File "/home/ubuntu/monodepth2/trainer.py", line 252, in process_batch
+    print(disp.max() + "\r")
+TypeError: unsupported operand type(s) for +: 'Tensor' and 'str'
+ubuntu@ip-172-31-82-185:~/monodepth2$ python train.py --model_name stereo_model   --frame_ids 0 --use_stereo --log_dir models/
+orig_model/
+Training model named:
+   stereo_model
+Models and tensorboard events files are saved to:
+   models/orig_model/
+Training is using:
+   cuda
+Using split:
+   eigen_zhou
+There are 39810 training items and 4424 validation items
+
+/home/ubuntu/anaconda3/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:122: UserWarning: Detected call of `lr_schedule
+r.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()
+` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate sched
+ule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Training
+tensor(0.5430, device='cuda:0', grad_fn=<MaxBackward1>)
+/home/ubuntu/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py:2705: UserWarning: Default grid_sample and affine_gr
+id behavior has changed to align_corners=False since 1.3.0. Please specify align_corners=True if the old behavior is desired.
+See the documentation of grid_sample for details.
+  warnings.warn("Default grid_sample and affine_grid behavior has changed "
+epoch   0 | batch      0 | examples/s:   4.5 | loss: 0.20962 | time elapsed: 00h00m23s | time left: 00h00m00s
+{'loss/0': tensor(0.2095, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.2095, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.2101, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.2094, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.2096, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.4878552, dtype=float32
+), 'de/sq_rel': array(5.2514734, dtype=float32), 'de/rms': array(12.9769, dtype=float32), 'de/log_rms': array(0.6360302, dtype
+=float32), 'da/a1': array(0.2814667, dtype=float32), 'da/a2': array(0.5213327, dtype=float32), 'da/a3': array(0.75363225, dtyp
+e=float32)}
+tensor(0.5373, device='cuda:0')
+tensor(0.5356, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5349, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5349, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5272, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5270, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5239, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5218, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5144, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5147, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5097, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.5054, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4999, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4943, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4932, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4952, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4969, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4948, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4890, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4888, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4862, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4778, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4722, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4668, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4572, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4512, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4386, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4301, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4195, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.4090, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3942, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3851, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3710, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3615, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3511, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3390, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3210, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.3045, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2839, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2828, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2722, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2552, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2454, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2410, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2159, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2124, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2068, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2078, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2044, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1959, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1839, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1764, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1640, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1690, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1575, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1777, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1459, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1562, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1091, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0962, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0919, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0674, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0715, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0577, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0642, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0743, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0705, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0834, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0836, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0955, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1070, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0899, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1252, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1116, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1269, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1568, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1224, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1339, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1493, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1363, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1041, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1175, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1333, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1198, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1468, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1538, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1665, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1204, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1234, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1482, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1353, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1570, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1360, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1021, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0693, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0817, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0933, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1204, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1339, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1517, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1114, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1079, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1479, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1134, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1817, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1548, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1418, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1548, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1704, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1852, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1218, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1314, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1296, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1368, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1381, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1155, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1253, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0995, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0906, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0945, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0895, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1001, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0989, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0931, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1097, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1062, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1157, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1150, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1234, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1268, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1362, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1731, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1347, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1884, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1888, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1587, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1705, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1502, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1545, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1438, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1793, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1235, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1403, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1278, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1234, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1380, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1230, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1263, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1222, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0992, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0998, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1140, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1274, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1365, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1095, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1074, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1227, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1110, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1386, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1235, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1146, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1107, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1189, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1156, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1527, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1372, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1350, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1186, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1508, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1325, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1311, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1611, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1450, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1478, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1556, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1392, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1677, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2022, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1581, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1868, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1479, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1817, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1497, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1485, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1571, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1165, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1119, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1018, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1171, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1186, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1495, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1477, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1554, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1413, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1452, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1570, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1471, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1366, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1354, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1232, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1489, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1246, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1513, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1668, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1643, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1615, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1577, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1523, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1387, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1491, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1309, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1214, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1146, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1274, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1396, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1231, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1324, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1329, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1400, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1368, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1458, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1287, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1370, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1449, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1338, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1585, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1869, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1780, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1473, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1422, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1806, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2167, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2146, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1970, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2106, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1642, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1466, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1563, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1418, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1396, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1560, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1211, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1473, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1663, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1556, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1441, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1262, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1487, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1729, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1482, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1385, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   0 | batch    250 | examples/s:  15.4 | loss: 0.15530 | time elapsed: 00h03m20s | time left: 14h42m34s
+{'loss/0': tensor(0.1541, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1540, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1549, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1582, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1553, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.14346693, dtype=float3
+2), 'de/sq_rel': array(0.9765481, dtype=float32), 'de/rms': array(5.410754, dtype=float32), 'de/log_rms': array(0.22439703, dt
+ype=float32), 'da/a1': array(0.7933792, dtype=float32), 'da/a2': array(0.9320477, dtype=float32), 'da/a3': array(0.97873443, d
+type=float32)}
+tensor(0.1542, device='cuda:0')
+tensor(0.1280, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1617, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1410, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1695, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1515, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1415, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1608, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1537, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1694, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1189, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1191, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1229, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1122, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1307, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1619, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1332, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1331, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1492, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1236, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1533, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1369, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1591, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1865, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1639, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1286, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1444, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1556, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1367, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1232, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1303, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1825, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1563, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1486, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1508, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1470, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1525, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1775, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1441, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1441, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1530, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1619, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1584, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2107, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1643, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1774, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1662, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1957, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1350, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1583, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2072, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1882, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1966, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1606, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1358, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1431, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1330, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1443, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1244, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1274, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1321, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1299, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1337, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1366, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1332, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1381, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1364, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1360, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1299, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1304, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1464, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1573, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1552, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1314, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1536, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1403, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1507, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1545, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1714, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1517, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1532, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1397, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1248, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1277, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1452, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1543, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1632, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1594, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1489, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1566, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1794, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1676, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1516, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1749, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2165, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1481, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1598, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1884, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1607, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1447, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1669, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1447, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1491, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1304, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1412, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1605, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1463, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1485, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1395, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1220, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1527, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1282, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1353, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1589, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1621, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1492, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1373, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1440, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1625, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1665, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1688, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1634, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1521, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1691, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1658, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1659, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1611, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1360, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1426, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1173, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1373, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1420, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1243, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1284, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1372, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1416, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1645, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1632, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1699, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1267, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1456, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1519, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1438, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1451, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1569, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1274, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1308, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1446, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1843, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1397, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1672, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1514, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1315, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1588, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1606, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1783, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1709, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1435, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1432, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1506, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1612, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2239, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1747, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1755, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1502, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1711, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1630, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1438, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1345, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1562, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1515, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1310, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1400, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1327, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1493, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1179, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1253, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1393, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1421, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1540, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1456, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1484, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1664, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1349, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1308, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1518, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1570, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1162, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1301, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1421, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1567, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1242, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1533, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1653, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1358, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1803, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2199, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1878, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1513, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1378, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2133, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1499, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1366, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1167, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1221, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1658, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1724, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1701, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1884, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1794, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1871, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2067, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1948, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1713, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2153, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2283, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2244, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1701, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1474, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1698, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1955, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1543, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2432, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1875, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1908, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1358, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1575, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1511, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1336, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1532, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1547, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1312, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1319, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1302, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1728, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1536, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1354, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1605, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1356, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2004, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1623, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1575, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1437, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1341, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1609, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1509, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1486, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1578, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1471, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1372, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1229, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   0 | batch    500 | examples/s:  17.3 | loss: 0.12516 | time elapsed: 00h06m16s | time left: 13h47m11s
+{'loss/0': tensor(0.1260, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1258, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1252, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1237, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1252, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.16463979, dtype=float3
+2), 'de/sq_rel': array(1.2550219, dtype=float32), 'de/rms': array(6.202006, dtype=float32), 'de/log_rms': array(0.26712772, dt
+ype=float32), 'da/a1': array(0.8129283, dtype=float32), 'da/a2': array(0.9277686, dtype=float32), 'da/a3': array(0.9620451, dt
+ype=float32)}
+tensor(0.1344, device='cuda:0')
+tensor(0.1322, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1353, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1083, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1380, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1460, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1492, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1359, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1311, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1366, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1406, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1403, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1416, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1534, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1759, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1748, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1696, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1179, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1443, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1494, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1311, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1764, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1486, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1640, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1505, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1531, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1376, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1701, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1900, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1432, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1508, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1926, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1828, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2043, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1501, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1467, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1564, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1497, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1525, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1432, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1401, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1749, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1930, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1437, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1565, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1365, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1866, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1848, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1527, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1863, device='cuda:0', grad_fn=<MaxBackward1>)
+^CTraceback (most recent call last):
+  File "train.py", line 18, in <module>
+    trainer.train()
+  File "/home/ubuntu/monodepth2/trainer.py", line 189, in train
+    self.run_epoch()
+  File "/home/ubuntu/monodepth2/trainer.py", line 205, in run_epoch
+    outputs, losses = self.process_batch(inputs)
+  File "/home/ubuntu/monodepth2/trainer.py", line 252, in process_batch
+    print(str(disp.max()) + "\r")
+KeyboardInterrupt
+^C
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$ python train.py --model_name stereo_model   --frame_ids 0 --use_stereo --log_dir models/
+orig_model/
+Training model named:
+   stereo_model
+Models and tensorboard events files are saved to:
+   models/orig_model/
+Training is using:
+   cuda
+Using split:
+   eigen_zhou
+There are 39810 training items and 4424 validation items
+
+/home/ubuntu/anaconda3/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:122: UserWarning: Detected call of `lr_schedule
+r.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()
+` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate sched
+ule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Training
+/home/ubuntu/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py:2705: UserWarning: Default grid_sample and affine_gr
+id behavior has changed to align_corners=False since 1.3.0. Please specify align_corners=True if the old behavior is desired.
+See the documentation of grid_sample for details.
+  warnings.warn("Default grid_sample and affine_grid behavior has changed "
+epoch   0 | batch      0 | examples/s:   3.3 | loss: 0.22634 | time elapsed: 00h00m20s | time left: 00h00m00s
+{'loss/0': tensor(0.2263, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.2267, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.2272, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.2252, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.2263, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.49644423, dtype=float3
+2), 'de/sq_rel': array(4.540101, dtype=float32), 'de/rms': array(10.807734, dtype=float32), 'de/log_rms': array(0.61121, dtype
+=float32), 'da/a1': array(0.26332235, dtype=float32), 'da/a2': array(0.5233797, dtype=float32), 'da/a3': array(0.7420975, dtyp
+e=float32)}
+epoch   0 | batch    250 | examples/s:  18.6 | loss: 0.14854 | time elapsed: 00h03m17s | time left: 14h29m47s
+{'loss/0': tensor(0.1501, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1494, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1478, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1469, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1485, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.15482958, dtype=float3
+2), 'de/sq_rel': array(0.87265754, dtype=float32), 'de/rms': array(4.467615, dtype=float32), 'de/log_rms': array(0.23205754, d
+type=float32), 'da/a1': array(0.78309494, dtype=float32), 'da/a2': array(0.9261236, dtype=float32), 'da/a3': array(0.9797076,
+dtype=float32)}
+epoch   0 | batch    500 | examples/s:  16.4 | loss: 0.13444 | time elapsed: 00h06m18s | time left: 13h50m49s
+{'loss/0': tensor(0.1360, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1345, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1353, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1319, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1344, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.15125822, dtype=float3
+2), 'de/sq_rel': array(1.5138365, dtype=float32), 'de/rms': array(5.8293, dtype=float32), 'de/log_rms': array(0.24871838, dtyp
+e=float32), 'da/a1': array(0.81150126, dtype=float32), 'da/a2': array(0.9370747, dtype=float32), 'da/a3': array(0.97159094, dt
+ype=float32)}
+epoch   0 | batch    750 | examples/s:  15.3 | loss: 0.15000 | time elapsed: 00h09m18s | time left: 13h34m00s
+{'loss/0': tensor(0.1502, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1500, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1511, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1487, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1500, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.14759518, dtype=float3
+2), 'de/sq_rel': array(1.5283923, dtype=float32), 'de/rms': array(5.7347527, dtype=float32), 'de/log_rms': array(0.22983564, d
+type=float32), 'da/a1': array(0.8138244, dtype=float32), 'da/a2': array(0.9391974, dtype=float32), 'da/a3': array(0.97468644,
+dtype=float32)}
+epoch   0 | batch   1000 | examples/s:  16.6 | loss: 0.13138 | time elapsed: 00h12m18s | time left: 13h23m48s
+{'loss/0': tensor(0.1313, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1322, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1307, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1313, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1314, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.15533659, dtype=float3
+2), 'de/sq_rel': array(1.4098892, dtype=float32), 'de/rms': array(6.0538626, dtype=float32), 'de/log_rms': array(0.24110137, d
+type=float32), 'da/a1': array(0.8137108, dtype=float32), 'da/a2': array(0.9357366, dtype=float32), 'da/a3': array(0.9662286, d
+type=float32)}
+epoch   0 | batch   1250 | examples/s:  18.2 | loss: 0.13740 | time elapsed: 00h15m18s | time left: 13h17m29s
+{'loss/0': tensor(0.1368, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1377, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1380, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1371, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1374, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.12162779, dtype=float3
+2), 'de/sq_rel': array(0.81309617, dtype=float32), 'de/rms': array(4.832354, dtype=float32), 'de/log_rms': array(0.18359765, d
+type=float32), 'da/a1': array(0.852015, dtype=float32), 'da/a2': array(0.97172767, dtype=float32), 'da/a3': array(0.9896797, d
+type=float32)}
+epoch   0 | batch   1500 | examples/s:  17.2 | loss: 0.13996 | time elapsed: 00h18m20s | time left: 13h12m46s
+{'loss/0': tensor(0.1416, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1418, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1407, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1357, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1400, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.11726827, dtype=float3
+2), 'de/sq_rel': array(0.96594, dtype=float32), 'de/rms': array(5.294012, dtype=float32), 'de/log_rms': array(0.19151674, dtyp
+e=float32), 'da/a1': array(0.86226344, dtype=float32), 'da/a2': array(0.9593088, dtype=float32), 'da/a3': array(0.98754466, dt
+ype=float32)}
+epoch   0 | batch   1750 | examples/s:  15.7 | loss: 0.13111 | time elapsed: 00h21m18s | time left: 13h06m11s
+{'loss/0': tensor(0.1310, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1311, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1318, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1306, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1311, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.13162214, dtype=float3
+2), 'de/sq_rel': array(0.86585826, dtype=float32), 'de/rms': array(4.900603, dtype=float32), 'de/log_rms': array(0.20938574, d
+type=float32), 'da/a1': array(0.82983106, dtype=float32), 'da/a2': array(0.9456907, dtype=float32), 'da/a3': array(0.9846691,
+dtype=float32)}
+epoch   0 | batch   2000 | examples/s:  17.4 | loss: 0.12740 | time elapsed: 00h24m18s | time left: 13h01m49s
+{'loss/0': tensor(0.1273, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1275, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1274, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1274, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1274, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.12217771, dtype=float3
+2), 'de/sq_rel': array(0.9415526, dtype=float32), 'de/rms': array(5.106605, dtype=float32), 'de/log_rms': array(0.21423125, dt
+ype=float32), 'da/a1': array(0.841066, dtype=float32), 'da/a2': array(0.94281054, dtype=float32), 'da/a3': array(0.97905236, d
+type=float32)}
+tensor(0.1279, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1730, device='cuda:0', grad_fn=<MaxBackward1>)
+Training.1772, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   1 | batch    683 | examples/s:  17.9 | loss: 0.13274 | time elapsed: 00h48m19s | time left: 12h33m07s
+{'loss/0': tensor(0.1330, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1329, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1329, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1321, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1327, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.09548207, dtype=float3
+2), 'de/sq_rel': array(0.7110076, dtype=float32), 'de/rms': array(4.3975124, dtype=float32), 'de/log_rms': array(0.18194938, d
+type=float32), 'da/a1': array(0.8996635, dtype=float32), 'da/a2': array(0.9697432, dtype=float32), 'da/a3': array(0.98581535,
+dtype=float32)}
+tensor(0.1702, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   1 | batch   2683 | examples/s:  18.5 | loss: 0.13583 | time elapsed: 01h12m37s | time left: 12h10m26s
+{'loss/0': tensor(0.1370, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1369, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1339, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1354, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1358, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.10743637, dtype=float3
+2), 'de/sq_rel': array(0.652836, dtype=float32), 'de/rms': array(4.068926, dtype=float32), 'de/log_rms': array(0.1795747, dtyp
+e=float32), 'da/a1': array(0.8716849, dtype=float32), 'da/a2': array(0.9601069, dtype=float32), 'da/a3': array(0.98939836, dty
+pe=float32)}
+Training.2510, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1717, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   2 | batch   1366 | examples/s:  18.6 | loss: 0.11726 | time elapsed: 01h36m53s | time left: 11h46m31s
+{'loss/0': tensor(0.1173, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1170, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1172, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1176, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1173, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.0835753, dtype=float32
+), 'de/sq_rel': array(0.54070914, dtype=float32), 'de/rms': array(4.33656, dtype=float32), 'de/log_rms': array(0.16109784, dty
+pe=float32), 'da/a1': array(0.9117492, dtype=float32), 'da/a2': array(0.9725405, dtype=float32), 'da/a3': array(0.9879507, dty
+pe=float32)}
+tensor(0.1638, device='cuda:0', grad_fn=<MaxBackward1>)
+Training.1470, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   3 | batch     49 | examples/s:  18.0 | loss: 0.12294 | time elapsed: 02h01m19s | time left: 11h23m34s
+{'loss/0': tensor(0.1231, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1229, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1227, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1230, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1229, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.1026172, dtype=float32
+), 'de/sq_rel': array(0.83652747, dtype=float32), 'de/rms': array(4.555222, dtype=float32), 'de/log_rms': array(0.20293058, dt
+ype=float32), 'da/a1': array(0.89427966, dtype=float32), 'da/a2': array(0.95825076, dtype=float32), 'da/a3': array(0.9760813,
+dtype=float32)}
+epoch   3 | batch   2049 | examples/s:  19.1 | loss: 0.13115 | time elapsed: 02h25m31s | time left: 10h58m59s
+{'loss/0': tensor(0.1313, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1319, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1305, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1310, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1312, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08227341, dtype=float3
+2), 'de/sq_rel': array(0.47108233, dtype=float32), 'de/rms': array(3.8943348, dtype=float32), 'de/log_rms': array(0.17103073,
+dtype=float32), 'da/a1': array(0.9065865, dtype=float32), 'da/a2': array(0.9644024, dtype=float32), 'da/a3': array(0.9836914,
+dtype=float32)}
+Training.1718, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.1752, device='cuda:0', grad_fn=<MaxBackward1>)rd1>)
+epoch   4 | batch    732 | examples/s:  17.2 | loss: 0.12475 | time elapsed: 02h49m45s | time left: 10h34m40s
+{'loss/0': tensor(0.1244, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1244, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1248, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1254, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1248, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08745685, dtype=float3
+2), 'de/sq_rel': array(0.6848219, dtype=float32), 'de/rms': array(4.2190194, dtype=float32), 'de/log_rms': array(0.18605074, d
+type=float32), 'da/a1': array(0.9163525, dtype=float32), 'da/a2': array(0.9670182, dtype=float32), 'da/a3': array(0.98447776,
+dtype=float32)}
+epoch   4 | batch   2732 | examples/s:  16.8 | loss: 0.10955 | time elapsed: 03h14m04s | time left: 10h10m37s
+{'loss/0': tensor(0.1091, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1089, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1094, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1107, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1096, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.10245528, dtype=float3
+2), 'de/sq_rel': array(0.86305976, dtype=float32), 'de/rms': array(5.6250567, dtype=float32), 'de/log_rms': array(0.23480289,
+dtype=float32), 'da/a1': array(0.89461523, dtype=float32), 'da/a2': array(0.9536235, dtype=float32), 'da/a3': array(0.9748244,
+ dtype=float32)}
+Training.2286, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   5 | batch   1415 | examples/s:  18.5 | loss: 0.11986 | time elapsed: 03h38m28s | time left: 09h46m44s
+{'loss/0': tensor(0.1196, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1196, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1195, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1207, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1199, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.09393166, dtype=float3
+2), 'de/sq_rel': array(0.7547505, dtype=float32), 'de/rms': array(4.561066, dtype=float32), 'de/log_rms': array(0.19545425, dt
+ype=float32), 'da/a1': array(0.91019034, dtype=float32), 'da/a2': array(0.96255344, dtype=float32), 'da/a3': array(0.9800391,
+dtype=float32)}
+Training.2128, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   6 | batch     98 | examples/s:  16.5 | loss: 0.11085 | time elapsed: 04h02m51s | time left: 09h22m41s
+{'loss/0': tensor(0.1104, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1104, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1107, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1119, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1109, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.09527341, dtype=float3
+2), 'de/sq_rel': array(0.7148919, dtype=float32), 'de/rms': array(4.641918, dtype=float32), 'de/log_rms': array(0.19745281, dt
+ype=float32), 'da/a1': array(0.915127, dtype=float32), 'da/a2': array(0.9572828, dtype=float32), 'da/a3': array(0.97342455, dt
+ype=float32)}
+epoch   6 | batch   2098 | examples/s:  17.1 | loss: 0.11914 | time elapsed: 04h27m09s | time left: 08h58m27s
+{'loss/0': tensor(0.1192, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1189, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1188, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1196, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1191, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08550075, dtype=float3
+2), 'de/sq_rel': array(0.66357607, dtype=float32), 'de/rms': array(4.3857026, dtype=float32), 'de/log_rms': array(0.17284636,
+dtype=float32), 'da/a1': array(0.9081987, dtype=float32), 'da/a2': array(0.9641627, dtype=float32), 'da/a3': array(0.98327, dt
+ype=float32)}
+Training.2034, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   7 | batch    781 | examples/s:  17.5 | loss: 0.10545 | time elapsed: 04h51m34s | time left: 08h34m23s
+{'loss/0': tensor(0.1057, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1052, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1047, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1063, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1054, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08267328, dtype=float3
+2), 'de/sq_rel': array(0.8579276, dtype=float32), 'de/rms': array(4.649375, dtype=float32), 'de/log_rms': array(0.1722379, dty
+pe=float32), 'da/a1': array(0.9223061, dtype=float32), 'da/a2': array(0.96751785, dtype=float32), 'da/a3': array(0.9848926, dt
+ype=float32)}
+epoch   7 | batch   2781 | examples/s:  17.6 | loss: 0.11768 | time elapsed: 05h15m54s | time left: 08h10m08s
+{'loss/0': tensor(0.1164, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1182, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1178, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1183, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1177, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08850165, dtype=float3
+2), 'de/sq_rel': array(0.53308773, dtype=float32), 'de/rms': array(4.203245, dtype=float32), 'de/log_rms': array(0.18159342, d
+type=float32), 'da/a1': array(0.91567683, dtype=float32), 'da/a2': array(0.9631306, dtype=float32), 'da/a3': array(0.982583, d
+type=float32)}
+Training.2546, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   8 | batch   1464 | examples/s:  20.1 | loss: 0.10112 | time elapsed: 05h40m13s | time left: 07h45m51s
+{'loss/0': tensor(0.1003, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1011, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1013, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1017, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1011, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.09146676, dtype=float3
+2), 'de/sq_rel': array(0.51705456, dtype=float32), 'de/rms': array(4.096628, dtype=float32), 'de/log_rms': array(0.19530642, d
+type=float32), 'da/a1': array(0.9229946, dtype=float32), 'da/a2': array(0.96723676, dtype=float32), 'da/a3': array(0.9816634,
+dtype=float32)}
+Training.1713, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch   9 | batch    147 | examples/s:  17.1 | loss: 0.11269 | time elapsed: 06h04m38s | time left: 07h21m42s
+{'loss/0': tensor(0.1122, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1133, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1119, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1134, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1127, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.09536605, dtype=float3
+2), 'de/sq_rel': array(0.559366, dtype=float32), 'de/rms': array(4.1464953, dtype=float32), 'de/log_rms': array(0.18221691, dt
+ype=float32), 'da/a1': array(0.90912473, dtype=float32), 'da/a2': array(0.9664259, dtype=float32), 'da/a3': array(0.9843298, d
+type=float32)}
+epoch   9 | batch   2147 | examples/s:  18.3 | loss: 0.11840 | time elapsed: 06h29m02s | time left: 06h57m29s
+{'loss/0': tensor(0.1179, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1180, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1183, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1194, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1184, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.11903246, dtype=float3
+2), 'de/sq_rel': array(0.6818988, dtype=float32), 'de/rms': array(4.5818634, dtype=float32), 'de/log_rms': array(0.21521759, d
+type=float32), 'da/a1': array(0.87937963, dtype=float32), 'da/a2': array(0.948862, dtype=float32), 'da/a3': array(0.97649693,
+dtype=float32)}
+Training.1882, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  10 | batch    830 | examples/s:  18.6 | loss: 0.10841 | time elapsed: 06h53m30s | time left: 06h33m19s
+{'loss/0': tensor(0.1082, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1081, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1083, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1092, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1084, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08160393, dtype=float3
+2), 'de/sq_rel': array(0.61144966, dtype=float32), 'de/rms': array(4.3422265, dtype=float32), 'de/log_rms': array(0.15970083,
+dtype=float32), 'da/a1': array(0.92527056, dtype=float32), 'da/a2': array(0.9695026, dtype=float32), 'da/a3': array(0.9865616,
+ dtype=float32)}
+epoch  10 | batch   2830 | examples/s:  17.8 | loss: 0.11211 | time elapsed: 07h17m47s | time left: 06h08m57s
+{'loss/0': tensor(0.1115, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1115, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1120, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1134, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1121, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.06824807, dtype=float3
+2), 'de/sq_rel': array(0.5738748, dtype=float32), 'de/rms': array(4.1669364, dtype=float32), 'de/log_rms': array(0.1566917, dt
+ype=float32), 'da/a1': array(0.9319483, dtype=float32), 'da/a2': array(0.9727959, dtype=float32), 'da/a3': array(0.986674, dty
+pe=float32)}
+Training.2070, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  11 | batch   1513 | examples/s:  18.3 | loss: 0.11288 | time elapsed: 07h42m04s | time left: 05h44m36s
+{'loss/0': tensor(0.1128, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1120, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1123, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1145, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1129, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.07415297, dtype=float3
+2), 'de/sq_rel': array(0.6797627, dtype=float32), 'de/rms': array(4.7488813, dtype=float32), 'de/log_rms': array(0.1698933, dt
+ype=float32), 'da/a1': array(0.92871964, dtype=float32), 'da/a2': array(0.9684863, dtype=float32), 'da/a3': array(0.983165, dt
+ype=float32)}
+Training.1749, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  12 | batch    196 | examples/s:  18.2 | loss: 0.09977 | time elapsed: 08h06m20s | time left: 05h20m15s
+{'loss/0': tensor(0.0993, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.0992, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.0995, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1010, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.0998, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08077984, dtype=float3
+2), 'de/sq_rel': array(0.47421908, dtype=float32), 'de/rms': array(3.7428613, dtype=float32), 'de/log_rms': array(0.17320858,
+dtype=float32), 'da/a1': array(0.9288204, dtype=float32), 'da/a2': array(0.9682678, dtype=float32), 'da/a3': array(0.9835192,
+dtype=float32)}
+epoch  12 | batch   2196 | examples/s:  22.1 | loss: 0.10160 | time elapsed: 08h30m35s | time left: 04h55m53s
+{'loss/0': tensor(0.1010, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1013, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1014, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1026, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1016, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.10454332, dtype=float3
+2), 'de/sq_rel': array(0.6543085, dtype=float32), 'de/rms': array(4.4271464, dtype=float32), 'de/log_rms': array(0.21807368, d
+type=float32), 'da/a1': array(0.90945, dtype=float32), 'da/a2': array(0.95077246, dtype=float32), 'da/a3': array(0.9723925, dt
+ype=float32)}
+Training.2197, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  13 | batch    879 | examples/s:  17.0 | loss: 0.13443 | time elapsed: 08h54m51s | time left: 04h31m33s
+{'loss/0': tensor(0.1336, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1338, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1340, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1363, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1344, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.10487988, dtype=float3
+2), 'de/sq_rel': array(0.6448113, dtype=float32), 'de/rms': array(4.4779887, dtype=float32), 'de/log_rms': array(0.19239664, d
+type=float32), 'da/a1': array(0.90257925, dtype=float32), 'da/a2': array(0.959575, dtype=float32), 'da/a3': array(0.9817097, d
+type=float32)}
+epoch  13 | batch   2879 | examples/s:  18.2 | loss: 0.10509 | time elapsed: 09h19m08s | time left: 04h07m14s
+{'loss/0': tensor(0.1046, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1046, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1048, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1064, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1051, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.07611698, dtype=float3
+2), 'de/sq_rel': array(0.48371658, dtype=float32), 'de/rms': array(4.036501, dtype=float32), 'de/log_rms': array(0.16603442, d
+type=float32), 'da/a1': array(0.9200483, dtype=float32), 'da/a2': array(0.9662659, dtype=float32), 'da/a3': array(0.9832169, d
+type=float32)}
+Training.1967, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  14 | batch   1562 | examples/s:  17.2 | loss: 0.12540 | time elapsed: 09h43m22s | time left: 03h42m53s
+{'loss/0': tensor(0.1248, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1248, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1252, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1268, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1254, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.10128352, dtype=float3
+2), 'de/sq_rel': array(0.63713896, dtype=float32), 'de/rms': array(4.2564287, dtype=float32), 'de/log_rms': array(0.23497492,
+dtype=float32), 'da/a1': array(0.8977523, dtype=float32), 'da/a2': array(0.9502424, dtype=float32), 'da/a3': array(0.9703165,
+dtype=float32)}
+Training.2039, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  15 | batch    245 | examples/s:  17.2 | loss: 0.11085 | time elapsed: 10h07m42s | time left: 03h18m35s
+{'loss/0': tensor(0.1104, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1104, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1108, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1118, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1108, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08524836, dtype=float3
+2), 'de/sq_rel': array(0.43444222, dtype=float32), 'de/rms': array(3.6184916, dtype=float32), 'de/log_rms': array(0.15123302,
+dtype=float32), 'da/a1': array(0.92196, dtype=float32), 'da/a2': array(0.9757861, dtype=float32), 'da/a3': array(0.98892164, d
+type=float32)}
+epoch  15 | batch   2245 | examples/s:  18.3 | loss: 0.08512 | time elapsed: 10h31m56s | time left: 02h54m16s
+{'loss/0': tensor(0.0845, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.0846, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.0849, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.0864, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.0851, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.10012645, dtype=float3
+2), 'de/sq_rel': array(0.94795734, dtype=float32), 'de/rms': array(4.9575744, dtype=float32), 'de/log_rms': array(0.19579606,
+dtype=float32), 'da/a1': array(0.91712546, dtype=float32), 'da/a2': array(0.958716, dtype=float32), 'da/a3': array(0.9788385,
+dtype=float32)}
+tensor(0.2280, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2619, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2239, device='cuda:0', grad_fn=<MaxBackward1>)
+Training.2057, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  16 | batch    928 | examples/s:  19.5 | loss: 0.10457 | time elapsed: 10h56m14s | time left: 02h29m57s
+{'loss/0': tensor(0.1039, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1040, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1043, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1060, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1046, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.0763706, dtype=float32
+), 'de/sq_rel': array(0.5925752, dtype=float32), 'de/rms': array(4.0957627, dtype=float32), 'de/log_rms': array(0.17499636, dt
+ype=float32), 'da/a1': array(0.9231308, dtype=float32), 'da/a2': array(0.9631245, dtype=float32), 'da/a3': array(0.9815718, dt
+ype=float32)}
+tensor(0.1619, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  16 | batch   2928 | examples/s:  14.9 | loss: 0.12698 | time elapsed: 11h20m18s | time left: 02h05m36s
+{'loss/0': tensor(0.1263, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1263, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1268, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1285, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1270, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.09140787, dtype=float3
+2), 'de/sq_rel': array(0.9243842, dtype=float32), 'de/rms': array(5.1879807, dtype=float32), 'de/log_rms': array(0.23198754, d
+type=float32), 'da/a1': array(0.9095041, dtype=float32), 'da/a2': array(0.9517102, dtype=float32), 'da/a3': array(0.97132117,
+dtype=float32)}
+Training.1978, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2456, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  17 | batch   1611 | examples/s:  16.8 | loss: 0.10269 | time elapsed: 11h44m32s | time left: 01h41m18s
+{'loss/0': tensor(0.1021, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1020, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1024, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1043, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1027, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.08862037, dtype=float3
+2), 'de/sq_rel': array(0.77278674, dtype=float32), 'de/rms': array(4.5161123, dtype=float32), 'de/log_rms': array(0.20786919,
+dtype=float32), 'da/a1': array(0.92070854, dtype=float32), 'da/a2': array(0.9596196, dtype=float32), 'da/a3': array(0.9757824,
+ dtype=float32)}
+tensor(0.2219, device='cuda:0')
+Training.1814, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  18 | batch    294 | examples/s:  17.6 | loss: 0.10153 | time elapsed: 12h08m42s | time left: 01h17m00s
+{'loss/0': tensor(0.1011, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.1010, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.1012, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1028, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.1015, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.07710841, dtype=float3
+2), 'de/sq_rel': array(0.52567714, dtype=float32), 'de/rms': array(3.4936473, dtype=float32), 'de/log_rms': array(0.1635131, d
+type=float32), 'da/a1': array(0.9233507, dtype=float32), 'da/a2': array(0.96849, dtype=float32), 'da/a3': array(0.98688376, dt
+ype=float32)}
+epoch  18 | batch   2294 | examples/s:  17.7 | loss: 0.09935 | time elapsed: 12h32m55s | time left: 00h52m42s
+{'loss/0': tensor(0.0988, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.0988, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.0991, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.1007, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.0993, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.0831193, dtype=float32
+), 'de/sq_rel': array(0.7473817, dtype=float32), 'de/rms': array(4.4247456, dtype=float32), 'de/log_rms': array(0.18606555, dt
+ype=float32), 'da/a1': array(0.9098301, dtype=float32), 'da/a2': array(0.956196, dtype=float32), 'da/a3': array(0.9765637, dty
+pe=float32)}
+Training.1925, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.2008, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  19 | batch    977 | examples/s:  19.4 | loss: 0.09407 | time elapsed: 12h57m09s | time left: 00h28m24s
+{'loss/0': tensor(0.0935, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.0935, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.0939, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.0954, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.0941, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.06545755, dtype=float3
+2), 'de/sq_rel': array(0.6474568, dtype=float32), 'de/rms': array(4.258022, dtype=float32), 'de/log_rms': array(0.16162573, dt
+ype=float32), 'da/a1': array(0.9385358, dtype=float32), 'da/a2': array(0.9723065, dtype=float32), 'da/a3': array(0.9844192, dt
+ype=float32)}
+tensor(0.2127, device='cuda:0', grad_fn=<MaxBackward1>)
+epoch  19 | batch   2977 | examples/s:  18.7 | loss: 0.09325 | time elapsed: 13h21m23s | time left: 00h04m07s
+{'loss/0': tensor(0.0927, device='cuda:0', grad_fn=<AddBackward0>), 'loss/1': tensor(0.0927, device='cuda:0', grad_fn=<AddBack
+ward0>), 'loss/2': tensor(0.0930, device='cuda:0', grad_fn=<AddBackward0>), 'loss/3': tensor(0.0946, device='cuda:0', grad_fn=
+<AddBackward0>), 'loss': tensor(0.0932, device='cuda:0', grad_fn=<DivBackward0>), 'de/abs_rel': array(0.0691555, dtype=float32
+), 'de/sq_rel': array(0.5077678, dtype=float32), 'de/rms': array(4.144201, dtype=float32), 'de/log_rms': array(0.1522073, dtyp
+e=float32), 'da/a1': array(0.9419299, dtype=float32), 'da/a2': array(0.97545815, dtype=float32), 'da/a3': array(0.98658687, dt
+ype=float32)}
+ubuntu@ip-172-31-82-185:~/monodepth2$  =<MaxBackward1>)
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$
+ubuntu@ip-172-31-82-185:~/monodepth2$

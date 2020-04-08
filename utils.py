@@ -51,8 +51,25 @@ def sec_to_hm_str(t):
 def download_model_if_doesnt_exist(model_name):
     """If pretrained kitti model doesn't exist, download and unzip it
     """
-    # values are tuples of (<google cloud URL>, <md5 checksum>)
-    download_paths = {
+
+
+    if not os.path.exists("models"):
+        os.makedirs("models")
+
+    model_path = os.path.join("models", model_name)
+
+    def check_file_matches_md5(checksum, fpath):
+        if not os.path.exists(fpath):
+            return False
+        with open(fpath, 'rb') as f:
+            current_md5checksum = hashlib.md5(f.read()).hexdigest()
+        return current_md5checksum == checksum
+
+    # see if we have the model already downloaded...
+    if not os.path.exists(os.path.join(model_path, "encoder.pth")):
+        
+            # values are tuples of (<google cloud URL>, <md5 checksum>)
+        download_paths = {
         "mono_640x192":
             ("https://storage.googleapis.com/niantic-lon-static/research/monodepth2/mono_640x192.zip",
              "a964b8356e08a02d009609d9e3928f7c"),
@@ -81,21 +98,6 @@ def download_model_if_doesnt_exist(model_name):
             ("https://storage.googleapis.com/niantic-lon-static/research/monodepth2/mono%2Bstereo_1024x320.zip",
              "cdc5fc9b23513c07d5b19235d9ef08f7"),
         }
-
-    if not os.path.exists("models"):
-        os.makedirs("models")
-
-    model_path = os.path.join("models", model_name)
-
-    def check_file_matches_md5(checksum, fpath):
-        if not os.path.exists(fpath):
-            return False
-        with open(fpath, 'rb') as f:
-            current_md5checksum = hashlib.md5(f.read()).hexdigest()
-        return current_md5checksum == checksum
-
-    # see if we have the model already downloaded...
-    if not os.path.exists(os.path.join(model_path, "encoder.pth")):
 
         model_url, required_md5checksum = download_paths[model_name]
 
