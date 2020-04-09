@@ -9,3 +9,4 @@ wget-log
 wget-log.1
 output_imgs
 output_imgs_10epochs
+*.pt
